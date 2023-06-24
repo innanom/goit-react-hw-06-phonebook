@@ -25,8 +25,7 @@ export const Form = () => {
       name,
       number
     };
-    
-    dispatch(addContact(contact));
+      dispatch(addContact(contact));
   };
    
   const handleSubmit = event => {
@@ -83,4 +82,3 @@ Form.propTypes = {
   number: PropTypes.string,
 };
 
-export default Form;
