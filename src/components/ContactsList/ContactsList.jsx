@@ -8,15 +8,13 @@ import { getContacts, getFilter } from 'redux/selector';
 export const ContactsList = () => {
     const contacts = useSelector(getContacts);
     const filter = useSelector(getFilter);
-
-
+   
     const getVisibleContacts = () => {
         const normalizedFilter = filter.toLowerCase().trim();
         return contacts.filter(({ name }) => name.toLowerCase().includes(normalizedFilter),);
     }
     const filteredContacts = getVisibleContacts();
     
-
     return (
         <List>
             {contacts.length === 0 && <Text>The contact list is empty</Text>}
