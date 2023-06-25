@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { PropTypes } from 'prop-types';
 import { nanoid } from 'nanoid';
 import { FormContacts, LabelForm, InputForm, BtnForm } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,30 +12,31 @@ export const Form = () => {
   const dispatch = useDispatch();
 
   const handleChangeName = event => {
-    setName(event.currentTarget.value);
+      setName(event.currentTarget.value);
   };
+  
   const handleChangeNumber = event => {
-    setNumber(event.currentTarget.value);
+      setNumber(event.currentTarget.value);
   }
   
   const handleAddContact = (name, number) => {
     const contact = {
       id: nanoid(),
       name,
-      number
+      number,
     };
       dispatch(addContact(contact));
   };
    
   const handleSubmit = event => {
     event.preventDefault();
-    // onSubmit({ name, number });
+
     if (contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())) {
       alert(`${name} is already in contacts`);
       return;
     }
 
-    handleAddContact({name, number});
+    handleAddContact(name, number);
     reset();
   };
 
@@ -77,8 +77,4 @@ export const Form = () => {
 }
 
 
-Form.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
-};
 

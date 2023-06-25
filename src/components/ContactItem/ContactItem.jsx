@@ -11,7 +11,6 @@ export const ContactItem = ({ id, name, number }) => {
         dispatch(deleteContact(id));
     };
 
-
     return (
         <ListItem key={id}>
             <TextItem>{name}: {number}</TextItem>
@@ -19,6 +18,7 @@ export const ContactItem = ({ id, name, number }) => {
         </ListItem>
     );
 };
+
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
